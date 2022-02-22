@@ -1,0 +1,30 @@
+brownie cannot import mpm packages but it can download directly from github 
+    create a dependency on brownie-config.yaml and specify
+        - <organization/repo>@<version>
+        - make sure to remap your @<package>
+    the dependencies will show up under build/contract/dependencies
+* There was a problem with importing safemath for openzeplin so I just use version 0.8.8 instead which have safemath built in
+* When working in console, it is best practice to create __init__.py so that it knows to where to import from 
+* After deploying the smart contract using brownie, go to etherscan to verify and publish it
+    * This API associated with the etherscan account will automatically verify the contract for you
+        by adding the FundMe.deploy({"from": account}, publish_source = True). 
+    * Once on etherscan, you can interact with the contract just like in Remix 
+
+--------------------------------------------------------------------------------
+To deploy to local block-chain 
+    * WITH an oracle feed
+        You can 
+            1. Fork simulated chain 
+            2. Deploy a mock on local development chain <- let's go with this 
+    * To create a mock - go to contracts/ section
+        1. create test file 
+        2. create <mock_file>.sol : this is where we add code to mock the pricefeed 
+            many mocks can be found in chainlink mix repository 
+--------------------------------------------------------------------------------
+mainnet Fork:
+    *made an acocunt alchamy.com to create a blockchain fork
+--------------------------------------------------------------------------------
+Adding to github 
+% git init -b main
+% git config user.name "teemup123"
+% git config user.email "tansukawat@gmail.com"
